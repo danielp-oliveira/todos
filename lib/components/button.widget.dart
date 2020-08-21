@@ -15,6 +15,35 @@ class TDButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Theme.of(context).primaryColor,
+      width: width != null ? width : 250,
+      child: FlatButton(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            image != null
+                ? Image.asset(
+                    image,
+                    width: 32,
+                  )
+                : SizedBox(),
+            image != null
+                ? SizedBox(
+                    width: 10,
+                  )
+                : SizedBox(),
+            Text(
+              text,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        onPressed: callback,
+      ),
+    );
   }
 }

@@ -10,14 +10,14 @@ class TDButton extends StatelessWidget {
     @required this.text,
     @required this.callback,
     this.image,
-    this.width,
+    this.width = 250,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Theme.of(context).primaryColor,
-      width: width != null ? width : 250,
+      width: width,
       child: FlatButton(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

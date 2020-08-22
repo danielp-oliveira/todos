@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:todos/components/avatar.widget.dart';
+import 'package:todos/controllers/login.controller.dart';
+import 'package:todos/user.dart';
+import 'package:todos/views/login.view.dart';
 
 class UserCard extends StatelessWidget {
+  final controller = new LoginController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,14 +27,14 @@ class UserCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           TDAvatar(
-            path: 'https://placehold.it/80',
+            path: user.picture,
             width: 80,
           ),
           SizedBox(
             height: 20,
           ),
           Text(
-            'Daniel Oliveira',
+            user.name,
             style: TextStyle(
               color: Colors.white,
             ),
@@ -43,7 +48,16 @@ class UserCard extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                controller.logout().then((data) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginView(),
+                    ),
+                  );
+                });
+              },
             ),
           ),
           SizedBox(

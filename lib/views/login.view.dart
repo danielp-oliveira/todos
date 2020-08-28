@@ -14,6 +14,12 @@ class _LoginViewState extends State<LoginView> {
   final scaffoldKey = new GlobalKey<ScaffoldState>();
   var busy = false;
 
+  // @override
+  // initState() {
+  //   super.initState();
+  //   handleSignIn();
+  // }
+
   handleSignIn() {
     setState(() {
       busy = true;
